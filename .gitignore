@@ -5,6 +5,10 @@
 !.gitignore
 
 # Permitir solo estas carpetas y su contenido
+!hypr/
+!hypr/**
+
+
 !kitty/
 !kitty/**
 
