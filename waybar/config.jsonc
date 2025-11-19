@@ -138,7 +138,7 @@
         "states": {
             // "good": 95,
             "warning": 35,
-            "critical": 15
+            "critical": 5
         },
         "format": "{capacity}% {icon} ",
         "format-full": "{capacity}% {icon} ",
@@ -205,7 +205,7 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : " ⏻ ",
+        "format" : "⏻ ",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder

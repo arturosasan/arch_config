@@ -2,17 +2,17 @@
 <interface>
   <object class="GtkMenu" id="menu">
     <child>
-      <object class="GtkMenuItem" id="suspend">
+      <object class="GtkMenuItem" id="Suspender">
         <property name="label">Suspender</property>
       </object>
     </child>
     <child>
-      <object class="GtkMenuItem" id="hibernate">
+      <object class="GtkMenuItem" id="Hibernar">
         <property name="label">Hibernar</property>
       </object>
     </child>
     <child>
-      <object class="GtkMenuItem" id="shutdown">
+      <object class="GtkMenuItem" id="Apagar">
         <property name="label">Apagar</property>
       </object>
     </child>
@@ -20,7 +20,7 @@
       <object class="GtkSeparatorMenuItem" id="delimiter1"/>
     </child>
     <child>
-      <object class="GtkMenuItem" id="reboot">
+      <object class="GtkMenuItem" id="Reiniciar">
         <property name="label">Reiniciar</property>
       </object>
     </child>
