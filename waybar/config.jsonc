@@ -112,7 +112,7 @@
         "format-alt": "{:%d / %m}"
         //"format-alt": "{:%Y-%m-%d}"
     },
-    "cpu": {
+    /*"cpu": {
         "format": "{usage}% ",
         "tooltip": false,
         "on-click": "kitty htop"
@@ -120,7 +120,7 @@
     "memory": {
         "format": "{}%  ",
         "on-click": "kitty htop"
-    },
+    },*/
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
