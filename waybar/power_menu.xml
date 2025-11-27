@@ -7,11 +7,6 @@
       </object>
     </child>
     <child>
-      <object class="GtkMenuItem" id="Hibernar">
-        <property name="label">Hibernar</property>
-      </object>
-    </child>
-    <child>
       <object class="GtkMenuItem" id="Apagar">
         <property name="label">Apagar</property>
       </object>

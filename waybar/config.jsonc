@@ -167,18 +167,18 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid}  ",
         // "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": " ",
+        "format-ethernet": "󱎔",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "⚠ Desconectado ⚠",
         "on-click":"kitty nmtui"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
+        "scroll-step": 0.5, // %, can be a float
         "format": "{volume}% {icon} ",
         "format-bluetooth": "{volume}% {icon} ",
         "format-bluetooth-muted": " {icon} {format_source} ",
-        "format-muted": " {format_source} ",
+        "format-muted": "󰖁",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -212,8 +212,8 @@
 		"menu-actions": {
 			"Apagar": "shutdown now",
 			"Reiniciar": "reboot",
-			"Suspender": "systemctl suspend",
-			"Hibernar": "systemctl hibernate"
+			"Suspender": "systemctl suspend"
+			//"Hibernar": "systemctl hibernate"
 		}
     },
     "custom/cpu_memory": {
