@@ -170,7 +170,7 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "⚠ Desconectado ⚠",
-        "on-click":"kitty nmtui"
+        "on-click":"kitty --single-instance -e nmtui"
     },
     "pulseaudio": {
         "scroll-step": 0.5, // %, can be a float
@@ -220,6 +220,6 @@
         "exec": "$HOME/.config/waybar/scripts/cpu_mem.sh",
         "interval": 1,
         "return-type": "json",
-        "on-click": "kitty htop"
+        "on-click": "kitty --single-instance -e htop"
     }
 }
