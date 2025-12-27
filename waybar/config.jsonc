@@ -173,7 +173,7 @@
         "on-click":"kitty --single-instance -e nmtui"
     },
     "pulseaudio": {
-        "scroll-step": 0.5, // %, can be a float
+        "scroll-step": 0.7, // %, can be a float
         "format": "{volume}% {icon} ",
         "format-bluetooth": "{volume}% {icon} ",
         "format-bluetooth-muted": " {icon} {format_source} ",
