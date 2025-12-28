@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <object class="GtkMenu" id="menu">
+    <property name="margin-top">20</property>
     <child>
       <object class="GtkMenuItem" id="Suspender">
         <property name="label">Suspender</property>
@@ -20,4 +21,4 @@
       </object>
     </child>
   </object>
-</interface>   
+</interface>
