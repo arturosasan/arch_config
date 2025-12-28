@@ -9,19 +9,20 @@
     
     "modules-left": [
         "hyprland/workspaces",
-        "custom/media"
+        "custom/media",
+        "network",
+        "pulseaudio"
     ],
     "modules-center": [
         "custom/clock"
     ],
     "modules-right": [
         "mpd",
-        "pulseaudio",
-        "network",
-        "custom/cpu_memory",
+        
         "battery",
-        "battery#bat2",
+        //"battery#bat2",
         //"clock",
+        "custom/cpu_memory",
         "custom/power"
     ],
     
@@ -73,7 +74,7 @@
         },
         "format": "{capacity}% {icon} ",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon} ",
         //"format-warning": "{capacity}% {icon}", // An empty format will hide the module
