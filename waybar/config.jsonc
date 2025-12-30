@@ -9,16 +9,16 @@
     
     "modules-left": [
         "hyprland/workspaces",
-        "custom/media",
         "network",
-        "pulseaudio"
+        "custom/media"
     ],
     "modules-center": [
         "custom/clock"
     ],
     "modules-right": [
+        "custom/copyq",
         "mpd",
-        
+        "pulseaudio",
         "battery",
         //"battery#bat2",
         //"clock",
@@ -73,7 +73,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon} ",
-        "format-full": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon} ",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon} ",
@@ -152,6 +152,12 @@
         "exec": "$HOME/.config/waybar/scripts/clock_icon.sh",
         "tooltip":false,
         "interval": 60,
+        "return-type": "json"
+    },
+    "custom/copyq" :{
+        "tooltip": false,
+        "on-click" : "copyq toggle",
+        "format":"",
         "return-type": "json"
     }
 }
