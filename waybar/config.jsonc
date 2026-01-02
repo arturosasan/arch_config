@@ -17,6 +17,7 @@
     ],
     "modules-right": [
         "custom/copyq",
+        "custom/wp",
         "mpd",
         "pulseaudio",
         "battery",
@@ -145,7 +146,7 @@
         "exec": "$HOME/.config/waybar/scripts/cpu_mem.sh",
         "interval": 2,
         "return-type": "json",
-        "on-click": "kitty --single-instance -e htop"
+        "on-click": "kitty --single-instance -e btop"
     },
 
     "custom/clock": {
@@ -158,6 +159,12 @@
         "tooltip": false,
         "on-click" : "copyq toggle",
         "format":"",
+        "return-type": "json"
+    },
+    "custom/wp" :{
+        "tooltip": false,
+        "on-click" : "waypaper",
+        "format":"󰸉",
         "return-type": "json"
     }
 }
