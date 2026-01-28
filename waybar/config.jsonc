@@ -160,11 +160,11 @@
         "on-click" : "copyq toggle",
         "format":"",
         "return-type": "json"
-    },
-    "custom/wp" :{
+    }
+    /*"custom/wp" :{
         "tooltip": false,
         "on-click" : "waypaper",
         "format":"󰸉",
         "return-type": "json"
-    }
+    }*/
 }
