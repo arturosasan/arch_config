@@ -42,7 +42,7 @@ Repositorio con mis configuraciones de Arch Linux para reinstalar todo rápido.
 ### 1. Clonar el repo
 
 ```bash
-git clone https://github.com/arturosasan/.config.git ~/.config
+git clone https://github.com/arturosasan/arch_config.git ~/.config
 ```
 
 ### 2. Ejecutar el script
