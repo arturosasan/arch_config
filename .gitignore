@@ -4,10 +4,24 @@
 # Mantener el propio .gitignore
 !.gitignore
 
-# Permitir solo estas carpetas y su contenido
+# Archivos en la raíz del repo
+!README.md
+!setup.sh
+
+# home/ -> dotfiles del $HOME
+!home/
+!home/**
+
+# backup-noctalia (excluyendo cache)
+!backup-noctalia/
+!backup-noctalia/config/
+!backup-noctalia/config/**
+backup-noctalia/cache/
+backup-noctalia/cache/**
+
+# Configs existentes
 !hypr/
 !hypr/**
-
 
 !kitty/
 !kitty/**
@@ -20,3 +34,24 @@
 
 !waybar/
 !waybar/**
+
+# Nuevas configs
+!btop/
+!btop/**
+
+!cava/
+!cava/**
+
+!gtk-3.0/
+!gtk-3.0/**
+
+!yazi/
+!yazi/**
+
+!fontconfig/
+!fontconfig/**
+
+# Archivos sueltos
+!mimeapps.list
+!user-dirs.dirs
+!user-dirs.locale
