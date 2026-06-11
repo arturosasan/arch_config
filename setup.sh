@@ -110,8 +110,37 @@ echo -n "Neovim     "; check_app "nvim" "neovim" \
 
 echo ""
 
-# ---- SHELL / GTK / FONTES ----
+# ---- NOTIFICACIONES ----
+echo -e "${CYAN}--- Notificaciones ---${NC}"
+
+echo -n "swaync     "; check_app "swaync" "swaync" \
+    && install_dir "$REPO_DIR/swaync" "$CONFIG_DST/swaync" "swaync/"
+
+echo ""
+
+# ---- AUDIO ----
+echo -e "${CYAN}--- Audio ---${NC}"
+
+echo -n "pipewire   "; check_app "pipewire" "pipewire"
+echo -n "pipewire-pulse"; check_app "pactl" "pipewire-pulse"
+echo -n "wireplumber"; check_app "wireplumber" "wireplumber"
+echo -n "pamixer    "; check_app "pamixer" "pamixer"
+echo -n "playerctl  "; check_app "playerctl" "playerctl"
+
+echo ""
+
+# ---- SISTEMA ----
 echo -e "${CYAN}--- Sistema ---${NC}"
+
+echo -n "hyprpaper  "; check_app "hyprpaper" "hyprpaper"
+echo -n "hyprlock   "; check_app "hyprlock" "hyprlock"
+echo -n "hyprshot   "; check_app "hyprshot" "hyprshot"
+echo -n "brightnessctl"; check_app "brightnessctl" "brightnessctl"
+
+echo ""
+
+# ---- SHELL / GTK / FONTES ----
+echo -e "${CYAN}--- Shell y tema ---${NC}"
 
 echo -n "GTK 3      "; check_app "gtk3-widget-factory" "gtk3" \
     && install_dir "$REPO_DIR/gtk-3.0" "$CONFIG_DST/gtk-3.0" "gtk-3.0/"
@@ -120,6 +149,9 @@ echo -n "Fontconfig ";
 
 install_dir "$REPO_DIR/fontconfig" "$CONFIG_DST/fontconfig" "fontconfig/"
 echo -e "  ${CYAN}→${NC} fontconfig (siempre presente)"
+
+echo -n "waypaper   "; check_app "waypaper" "waypaper" \
+    && install_dir "$REPO_DIR/waypaper" "$CONFIG_DST/waypaper" "waypaper/"
 
 echo ""
 
@@ -155,6 +187,9 @@ if [ -d "$REPO_DIR/home/Scripts" ]; then
 else
     echo -e "  $warn Scripts/ no encontrado en el repo"
 fi
+
+echo -n ".profile   ";
+install_file "$REPO_DIR/home/.profile" "$HOME/.profile" ".profile"
 
 echo ""
 echo "=========================================="

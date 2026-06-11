@@ -44,6 +44,18 @@
 !fontconfig/
 !fontconfig/**
 
+# swaync -> notificaciones
+!swaync/
+!swaync/**
+
+# waypaper -> GUI de fondos
+!waypaper/
+!waypaper/**
+
+# systemd -> servicios de usuario
+!systemd/
+!systemd/**
+
 # Archivos sueltos
 !mimeapps.list
 !user-dirs.dirs
