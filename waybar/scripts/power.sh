@@ -2,7 +2,7 @@
 
 options="  Apagar\n  Reiniciar\n  Suspender\n  Cerrar sesión"
 
-choice=$(echo -e "$options" | rofi -dmenu -p "Power" -theme-str 'window {width: 200px;} listview {lines: 4;}')
+choice=$(echo -e "$options" | rofi -dmenu -p "Power" -theme-str 'window {width: 200px;} listview {lines: 4;} inputbar {enabled: false;} element {cursor: "pointer";}')
 
 case "$choice" in
     *Apagar) systemctl poweroff ;;
