@@ -1,6 +1,6 @@
 #!/bin/bash
 
-options="  Apagar\n  Reiniciar\n  Suspender\n  Cerrar sesión"
+options="󰐥  Apagar\n  Reiniciar\n  Suspender\n  Cerrar sesión"
 
 choice=$(echo -e "$options" | rofi -dmenu -p "Power" -theme-str 'window {width: 200px;} listview {lines: 4;} inputbar {enabled: false;} element {cursor: "pointer";}')
 

@@ -1,170 +1,186 @@
-// -*- mode: jsonc -*-
 {
-    "height": 28,
-    "spacing": 6,
-    "margin-top": 6,
-    "margin-left": 10,
-    "margin-right": 10,
-    "margin-bottom": 0,
-    
-    "modules-left": [
-        "hyprland/workspaces",
-        "network",
-        "custom/media"
-    ],
-    "modules-center": [
-        "custom/clock"
-    ],
-    "modules-right": [
-        "custom/copyq",
-        "custom/wp",
-        "mpd",
-        "pulseaudio",
-        "battery",
-        //"battery#bat2",
-        //"clock",
-        "custom/cpu_memory",
-        "custom/power"
-    ],
-    
-    "hyprland/workspaces": {
-        "format": "{id}",
-        "on-click": "activate",
-        "all-outputs": true,
-        "sort-by-number": true
-    },
-    
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    
-    "mpd": {
-        "format": "{stateIcon} {artist} - {title}",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5,
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    
-    "tray": {
-        "icon-size": 15,
-        "spacing": 6
-    },
-    
-    "clock": {
-        "format": "{:%d/%m  %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    
-    "battery": {
-        "states": {
-            "warning": 35,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon} ",
-        "format-full": "{capacity}% {icon} ",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon} ",
-        //"format-warning": "{capacity}% {icon}", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
-    
-    "network": {
-        "format-wifi": "{essid}  ",
-        "format-ethernet": "",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Desconectado ⚠",
-        "on-click": "kitty --single-instance -e nmtui"
-    },
-    
-    "pulseaudio": {
-        "scroll-step": 1,
-        "format": "{volume}% {icon} ",
-        "format-bluetooth": "{volume}% {icon} ",
-        "format-bluetooth-muted": " {icon} {format_source} ",
-        "format-muted": "󰖁",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-       
-    },
-    
-    "custom/media": {
-        "format": "{}",
-        "return-type": "json",
-        "max-length": 50,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "on-click": "~/.config/waybar/scripts/goto-spotify.sh",
-        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify"
-    },
-    
-    "custom/power": {
-        "format": "󰐥",
-        "tooltip": false,
-        "menu": "on-click",
-        "menu-file": "$HOME/.config/waybar/power_menu.xml",
-        "menu-actions": {
-            "Apagar": "shutdown now",
-            "Reiniciar": "reboot",
-            "Suspender": "systemctl suspend"
-        }
-    },
-    
-    "custom/cpu_memory": {
-        "exec": "$HOME/.config/waybar/scripts/cpu_mem.sh",
-        "interval": 2,
-        "return-type": "json",
-        "on-click": "kitty --single-instance -e btop"
-    },
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 30,
+  "margin": "0 0 0 0",
+  //"width": 1350, // Waybar width
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window",
+    "custom/media"
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "backlight",
+    "pulseaudio",
+    "bluetooth",
+    "temperature",
+    "memory",
+    "cpu",
+    "battery",
+    "network",
+    "custom/power"
+  ],
 
-    "custom/clock": {
-        "exec": "$HOME/.config/waybar/scripts/clock_icon.sh",
-        "tooltip":false,
-        "interval": 60,
-        "return-type": "json"
+  // Modules configuration
+
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "sort-by-number": true,
+    "on-click": "activate",
+    "format": "{name}",
+    "cursor": true
+  },
+  "custom/media": {
+    "exec-if": "playerctl status 2>/dev/null",
+    "exec": "~/.config/waybar/scripts/mediaplayer.sh",
+    "max-length": 20,
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "~/.config/waybar/scripts/switch-to-player-ws.sh"
+  },
+  "hyprland/window": {
+    "icon": true,
+    "icon-size": 16,
+    "format": "{title}",
+    "max-length": 35,
+    "separate-outputs": true
+  },
+  "clock": {
+    "locale": "es_ES.UTF-8",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
     },
-    "custom/copyq" :{
-        "tooltip": false,
-        "on-click" : "copyq toggle",
-        "format":"",
-        "return-type": "json"
-    }
-    /*"custom/wp" :{
-        "tooltip": false,
-        "on-click" : "waypaper",
-        "format":"󰸉",
-        "return-type": "json"
-    }*/
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    },
+    "format-alt": "  {:L%a %d %b  %H:%M}", //12 hour format
+    // "format": " {:%d %m %Y  %H:%M}",	//24 hour format
+      "format": "  {:%d/%m  %H:%M}", 
+    // //"timezones": [ "Kolkata" ],
+    // //"max-length": 200
+    "interval": 1
+  },
+  // "clock": {
+  //     "format": "  {:%H:%M:%S}",
+  //     "format-alt": "  {:%A, %B %d, %Y (%R)}",
+  //     "tooltip-format": "<tt><small>{calendar}</small></tt>",
+  //     "calendar": {
+  //         "mode"          : "month",
+  //         "mode-mon-col"  : 3,
+  //         "weeks-pos"     : "right",
+  //         "on-scroll"     : 1,
+  //         "on-click-right": "mode",
+  //         "format": {
+  //             "months":     "<span color='#ffead3'><b>{}</b></span>",
+  //             "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+  //             "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+  //             "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+  //             "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+  //         }
+  //     },
+  //     "actions": {
+  //         "on-click-right": "mode",
+  //         "on-click-forward": "tz_up",
+  //         "on-click-backward": "tz_down",
+  //         "on-scroll-up": "shift_up",
+  //         "on-scroll-down": "shift_down"
+  //     },
+  //     "interval": 1
+  // },
+  "cpu": {
+    "format": "  {usage}%",
+    "on-click": "kitty -e btop"
+  },
+  "memory": {
+    "format": "  {:}%",
+    "on-click": "kitty -e btop"
+  },
+  "temperature": {
+    // "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C ",
+    "format": " {temperatureC}°C",
+    "on-click": "kitty -e btop"
+  },
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": ["", ""],
+    "tooltip-format": "{percent}%",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "on-scroll-up": "brightnessctl set 1+%"
+  },
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{capacity}%"
+    //"format-icons": ["", "", "", "", "", "", "", "", "", ""]
+  },
+  "network": {
+    // "interface": "wlp2s0", // (Optional) To force the use of this interface
+    "format": "⚠  Error",
+    "format-wifi": "  {essid}",
+    // "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+    "format-ethernet": "  Ethernet",
+    "format-disconnected": "⚠  Desconectado",
+    // "on-click": "alacritty -e nmtui"
+    "on-click": "kitty -e impala"
+  },
+  "bluetooth": {
+    "format": "{icon}",
+    "format-off": "",
+    "format-on": "",
+    "format-connected": " {device_alias}",
+    "format-no-controller": "",
+    "on-click": "kitty -e bluetui"
+  },
+  "pulseaudio": {
+    "scroll-step": 1,
+    "format": "{icon}  {volume: >3}%",
+    "format-bluetooth": "{icon} {volume: >3}%",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "on-click": "kitty -e wiremix --tab output",
+    "on-click-center" : "pamixer -m",
+    "on-scroll-up": "pamixer -ui 2",
+    "on-scroll-down": "pamixer -ud 2"
+  }, 
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "~/.config/waybar/scripts/power.sh",
+    "tooltip": false
+  }
 }
