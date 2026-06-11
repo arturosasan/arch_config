@@ -123,14 +123,6 @@ echo -e "  ${CYAN}→${NC} fontconfig (siempre presente)"
 
 echo ""
 
-# ---- NOCTALIA SHELL ----
-echo -e "${CYAN}--- Noctalia ---${NC}"
-
-echo -n "Noctalia   "; check_app "qs" "noctalia-shell" \
-    && install_dir "$REPO_DIR/backup-noctalia/config/noctalia" "$CONFIG_DST/noctalia" "noctalia/"
-
-echo ""
-
 # ---- FILES SUELTOS ----
 echo -e "${CYAN}--- Archivos del sistema ---${NC}"
 

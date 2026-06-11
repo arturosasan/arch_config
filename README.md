@@ -25,7 +25,6 @@ Repositorio con mis configuraciones de Arch Linux para reinstalar todo rápido.
 | `nvim/` | Neovim | Editor con LazyVim |
 | `gtk-3.0/` | GTK3 | Tema gráfico |
 | `fontconfig/` | Fontconfig | Configuración de fuentes |
-| `backup-noctalia/` | Noctalia Shell | Plugins QML del shell |
 
 ### Dotfiles de $HOME
 | Archivo | Descripción |
@@ -61,5 +60,4 @@ Revisa el output del script para ver qué apps no están instaladas e instálala
 
 ```bash
 sudo pacman -S hyprland kitty neovim rofi waybar btop cava yazi
-yay -S noctalia-shell
 ```

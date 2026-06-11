@@ -12,13 +12,6 @@
 !home/
 !home/**
 
-# backup-noctalia (excluyendo cache)
-!backup-noctalia/
-!backup-noctalia/config/
-!backup-noctalia/config/**
-backup-noctalia/cache/
-backup-noctalia/cache/**
-
 # Configs existentes
 !hypr/
 !hypr/**
